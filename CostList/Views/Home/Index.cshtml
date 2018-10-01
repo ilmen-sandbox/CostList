@@ -1,0 +1,47 @@
+﻿@model CostList.Models.Cost
+
+@{
+    Layout = null;
+    ViewBag.Title = "Cost list";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("AddCost", "Home", FormMethod.Post))
+        {
+            @Html.LabelFor(x => x.Description)
+            @Html.TextBoxFor(m => m.Description);
+            <br />
+            @Html.LabelFor(x => x.Amount)
+            @Html.TextBoxFor(m => m.Amount);
+            <br />
+            <input type="submit" value="Submit" />
+        }
+    </div>
+    <br />
+    <div>
+        <table>
+            <tr>
+                <th>Дата</th>
+                <th>Описание</th>
+                <th>Стоимость</th>
+            </tr>
+            @foreach (var cost in ViewBag.Costs)
+            {
+                <tr>
+                    <td>@cost.Date.ToShortDateString()</td>
+                    <td>@cost.Description</td>
+                    <td>@cost.Amount</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
