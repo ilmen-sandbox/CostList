@@ -3,6 +3,17 @@
     using System;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.Data.Entity;
+
+    public class CostContext: DbContext
+    {
+        public DbSet<Cost> Costs { get; set; }
+
+        public CostContext() : base("DefaultConnection")
+        {
+
+        }
+    }
 
     public class Cost
     {

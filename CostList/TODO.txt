@@ -1,0 +1,6 @@
++ PgSql
++ EF
+ Castle Windsor
+ Castle Windsor Lifecycles?
+ NUnit
+ ExtJs
